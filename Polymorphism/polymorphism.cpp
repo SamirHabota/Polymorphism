@@ -2,6 +2,7 @@
 #include<vector>
 using namespace std;
 
+//mother class Shape
 class Shape {
 protected:
 	double* _mainParam;
@@ -27,6 +28,7 @@ public:
 	};
 };
 
+//child class Square
 class Square : public Shape {
 private:
 	string _comment;
@@ -69,6 +71,7 @@ public:
 	}
 };
 
+//child class Circle
 class Circle : public Shape {
 private:
 	string _comment;
@@ -112,11 +115,13 @@ public:
 	}
 };
 
+//template funciton for conversion
 template<typename type>
 type* convertShapePointer(Shape* item) {
 	return dynamic_cast<type*>(item);
 }
 
+//custom container class
 class CustomShapeContainer {
 private:
 	Shape** _array;
@@ -247,7 +252,6 @@ int main() {
 	CustomShapeContainer copy2;
 	copy2 = customShapes;
 	cout << copy2 << endl;
-	
 
 return 0;
 }
